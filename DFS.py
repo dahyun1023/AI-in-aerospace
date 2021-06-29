@@ -31,3 +31,25 @@ def DFS(graph, root, goal, visit):
 
 print(DFS(graph, root_node, goal_node, True))
 print(DFS(graph, root_node, goal_node, False))
+
+
+def dfs2(graph, start):
+    visited = []
+    stack   = [start]
+
+    while stack:
+        n = stack.pop()
+        
+        if n not in visited:
+            print('node    :',n)
+            print('stack   :',stack)
+            
+            visited.append(n)
+            stack += graph[n] - set(visited)
+            print('stacknew:',stack)
+        print('visited :',visited)   
+        if n == 'G':
+            break
+    return visited
+
+dfs(graph, 'S')
